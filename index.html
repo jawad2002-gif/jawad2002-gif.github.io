@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jawad Haidar | Software Developer — Portfolio</title>
+  <meta name="description" content="Portfolio of Jawad Haidar, Software Developer building web and desktop applications with React, PHP, Java, C# and ASP.NET." />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+
+  <!-- Ambient Backdrop Glow -->
+  <div class="ambient-glow-top"></div>
+
+  <!-- Custom Cursor (Desktop) -->
+  <div class="custom-cursor" id="customCursor"></div>
+  <div class="custom-cursor-follower" id="customCursorFollower"></div>
+
+  <!-- Site Header / Navbar (Matching Image 1 Aesthetic) -->
+  <header class="site-header" id="siteHeader">
+    <div class="nav-container">
+      <!-- Logo -->
+      <a href="#home" class="brand-logo">
+        <span class="logo-code">&lt;/&gt;</span>
+        <span>Jawad Haidar</span>
+      </a>
+
+      <!-- Desktop Nav Menu -->
+      <ul class="nav-menu">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#portfolio" class="nav-link">Projects</a></li>
+        <li class="nav-item-dropdown">
+          <span class="nav-link dropdown-toggle">
+            Pages
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M6 9l6 6 6-6"></path>
+            </svg>
+          </span>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item"><a href="#timeline">Education &amp; Journey</a></li>
+            <li class="dropdown-item"><a href="#architecture">Architecture &amp; Design</a></li>
+            <li class="dropdown-item"><a href="#additional">Additional Skills</a></li>
+            <li class="dropdown-item"><a href="#contact">Contact &amp; Hire</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- Nav Actions -->
+      <div class="nav-actions">
+        <a href="#contact" class="cart-badge">
+          <span class="status-dot"></span>
+          <span>Available for Hire</span>
+        </a>
+
+        <!-- Sound FX Toggle -->
+        <button class="sound-toggle-btn" id="soundToggleBtn" title="Sound Effects (Web Audio)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          </svg>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div id="mobileNavDrawer" style="position: fixed; inset: 0; background: rgba(12,14,20,0.96); backdrop-filter: blur(20px); z-index: 1500; display: flex; flex-direction: column; padding: 2rem; transform: translateX(100%); transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem;">
+      <a href="#home" class="brand-logo">
+        <span class="logo-code">&lt;/&gt;</span>
+        <span>Jawad Haidar</span>
+      </a>
+      <button id="mobileCloseBtn" style="background: none; border: none; color: #ffffff; font-size: 1.8rem; cursor: pointer;">✕</button>
+    </div>
+    <ul style="list-style: none; display: flex; flex-direction: column; gap: 1.5rem; font-size: 1.3rem; font-weight: 600;">
+      <li><a href="#home" class="nav-link" style="color: #ffffff; text-decoration: none;">Home</a></li>
+      <li><a href="#about" class="nav-link" style="color: #ffffff; text-decoration: none;">About Me</a></li>
+      <li><a href="#skills" class="nav-link" style="color: #ffffff; text-decoration: none;">Technical Skills</a></li>
+      <li><a href="#portfolio" class="nav-link" style="color: #ffffff; text-decoration: none;">Projects</a></li>
+      <li><a href="#timeline" class="nav-link" style="color: #ffffff; text-decoration: none;">Education &amp; Journey</a></li>
+      <li><a href="#architecture" class="nav-link" style="color: #ffffff; text-decoration: none;">Architecture &amp; SOLID</a></li>
+      <li><a href="#contact" class="nav-link" style="color: #38bdf8; text-decoration: none;">Get In Touch</a></li>
+    </ul>
+  </div>
+
+  <main>
+    <!-- ====================================================================
+         HERO SECTION (Matching Image 1 Design)
+         ==================================================================== -->
+    <section class="hero-section" id="home">
+      <div class="hero-grid">
+
+        <!-- Left Column: Title, Intro & Circular Blue Scroll Button -->
+        <div class="hero-left reveal-fade">
+          <div class="accent-dash"></div>
+          <h1 class="hero-title">
+            <span class="title-name">I'm Jawad, a</span>
+            <span class="title-role">Software Developer</span>
+          </h1>
+          <p class="hero-bio">
+            Software developer building responsive web and desktop applications with React, PHP, Java, C# and ASP.NET, backed by solid SQL database design.
+          </p>
+          <!-- Circular Blue Action Button (Image 1 signature element) -->
+          <a href="#about" class="hero-scroll-btn" id="heroScrollBtn" aria-label="Scroll to About Me section">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Right Column: About Me, My Work, Social Links (Image 1 layout) -->
+        <div class="hero-right reveal-fade delay-1">
+          <!-- Block 1: About Me -->
+          <div class="hero-info-block">
+            <span class="hero-block-tag">ABOUT ME</span>
+            <p class="hero-block-text">
+              B.Sc. in Computer Science from Lebanese International University. Full-stack experience across React, PHP, Java, C# and ASP.NET.
+            </p>
+            <a href="#about" class="hero-block-link">
+              <span>LEARN MORE</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Block 2: My Work -->
+          <div class="hero-info-block">
+            <span class="hero-block-tag">MY WORK</span>
+            <p class="hero-block-text">
+              Delivered 6 freelance applications, from a gym platform and restaurant CMS to a hospital management app.
+            </p>
+            <a href="#portfolio" class="hero-block-link">
+              <span>BROWSE PROJECTS</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Block 3: Follow & Connect -->
+          <div class="hero-info-block">
+            <span class="hero-block-tag">CONNECT WITH ME</span>
+            <div class="social-icons-row">
+              <!-- LinkedIn -->
+              <a href="https://www.linkedin.com/in/jawad-haidar-223884384" target="_blank" rel="noreferrer" class="social-icon-btn" aria-label="LinkedIn" title="Jawad Haidar on LinkedIn">
+                <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              </a>
+              <!-- Email -->
+              <a href="mailto:jawad.haidar.2019@hotmail.com" class="social-icon-btn" aria-label="Email" title="jawad.haidar.2019@hotmail.com">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              </a>
+              <!-- Phone -->
+              <a href="tel:+96181030749" class="social-icon-btn" aria-label="Phone" title="+961 81 030 749">
+                <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 2: ABOUT ME & STATS (Matching Image 1 Layout)
+         ==================================================================== -->
+    <section class="about-section" id="about">
+      <div class="section-container">
+        <div class="about-grid">
+
+          <!-- Left: Narrative & Manifesto Link -->
+          <div class="about-left reveal-fade">
+            <div class="section-label">
+              <span class="slash">/</span> ABOUT ME
+            </div>
+            <h2 class="about-heading">
+              Full-stack applications for real business workflows
+            </h2>
+            <p class="about-description">
+              Results-driven software developer with hands-on experience delivering web and desktop applications across industries, streamlining appointment scheduling, billing, inventory, order processing and content management. Skilled at building responsive interfaces, implementing role-based access control, integrating APIs and optimizing database operations.
+            </p>
+            <button class="more-about-btn" id="moreAboutBtn">
+              <span>Read engineering background</span>
+              <span style="font-size: 1.1rem;">→</span>
+            </button>
+          </div>
+
+          <!-- Right: Big Bold Statistics Counter -->
+          <div class="about-stats-container reveal-fade delay-2" id="aboutStatsContainer">
+            <div class="stats-row">
+              <!-- Stat 1 -->
+              <div class="stat-item">
+                <span class="stat-number" data-target="6" data-suffix="">0</span>
+                <div class="stat-meta">
+                  <span>Applications</span>
+                  <span>delivered</span>
+                </div>
+              </div>
+
+              <!-- Stat 2 -->
+              <div class="stat-item">
+                <span class="stat-number" data-target="12" data-suffix="">0</span>
+                <div class="stat-meta">
+                  <span>Programming</span>
+                  <span>languages</span>
+                </div>
+              </div>
+            </div>
+
+            <p class="stats-subtext">
+              Experience building React, Java, PHP and ASP.NET applications backed by SQL Server and MySQL, with SQL triggers and stored procedures, memoization for faster API-driven search, and role-based access control.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         CORE TECH STACK TICKER (Matching Image 1 Brand Bar)
+         ==================================================================== -->
+    <div class="brand-ticker-section">
+      <div class="brand-ticker-wrapper">
+        <span class="ticker-label">CORE TECH STACK</span>
+        <div class="ticker-items">
+          <div class="brand-badge" title="React.js">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg>
+            <span>React.js</span>
+          </div>
+          <div class="brand-badge" title="ASP.NET Core">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg>
+            <span>ASP.NET Core</span>
+          </div>
+          <div class="brand-badge" title="Java">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg>
+            <span>Java</span>
+          </div>
+          <div class="brand-badge" title="PHP &amp; MySQL">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg>
+            <span>PHP &amp; MySQL</span>
+          </div>
+          <div class="brand-badge" title="SQL Server">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg>
+            <span>SQL Server</span>
+          </div>
+          <div class="brand-badge" title="Flutter">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg>
+            <span>Flutter</span>
+          </div>
+          <div class="brand-badge" title="Docker">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg>
+            <span>Docker</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====================================================================
+         SECTION 3: MY SKILLS (Matching Image 1 Layout with Arrow Controls)
+         ==================================================================== -->
+    <section class="skills-section" id="skills">
+      <div class="section-container">
+
+        <!-- Header with Arrow Controls -->
+        <div class="section-header-flex reveal-fade">
+          <div>
+            <div class="section-label">
+              <span class="slash">/</span> TECHNICAL SKILLS
+            </div>
+            <h2 class="section-title">Technical skills &amp; stack</h2>
+          </div>
+          <div class="carousel-nav-arrows">
+            <button class="carousel-arrow" id="skillArrowPrev" aria-label="Previous skill">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <button class="carousel-arrow arrow-active" id="skillArrowNext" aria-label="Next skill">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter tabs -->
+        <div class="skill-tabs reveal-fade delay-1">
+          <button class="skill-tab-btn active" data-category="all">All</button>
+          <button class="skill-tab-btn" data-category="frontend">Frontend</button>
+          <button class="skill-tab-btn" data-category="backend">Backend &amp; Databases</button>
+          <button class="skill-tab-btn" data-category="tools">Tools &amp; Practices</button>
+        </div>
+
+        <!-- Skills Cards Grid / Carousel -->
+        <div class="skills-carousel-track" id="skillsTrack">
+          <div class="skill-card reveal-fade" data-cat="frontend">
+            <div class="skill-card-top">
+              <div class="skill-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg>
+              </div>
+              <span class="skill-years-badge">Frontend</span>
+            </div>
+            <h3 class="skill-name">React.js &amp; Responsive UI</h3>
+            <p class="skill-desc">React.js, JavaScript, TypeScript, HTML5, CSS3, Bootstrap, jQuery, state management and memoization.</p>
+          </div>
+
+          <div class="skill-card reveal-fade delay-1" data-cat="backend">
+            <div class="skill-card-top">
+              <div class="skill-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg>
+              </div>
+              <span class="skill-years-badge">Backend</span>
+            </div>
+            <h3 class="skill-name">ASP.NET, C# &amp; Java</h3>
+            <p class="skill-desc">ASP.NET Core, ASP.NET MVC, .NET Framework, Java, Java Swing, Node.js, REST API development and API integration.</p>
+          </div>
+
+          <div class="skill-card reveal-fade delay-2" data-cat="backend">
+            <div class="skill-card-top">
+              <div class="skill-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg>
+              </div>
+              <span class="skill-years-badge">Databases</span>
+            </div>
+            <h3 class="skill-name">SQL Server, MySQL &amp; PHP</h3>
+            <p class="skill-desc">PHP, SQL Server, MySQL, Firebase. Database design, normalization, triggers, stored procedures and query optimization.</p>
+          </div>
+
+          <div class="skill-card reveal-fade delay-3" data-cat="tools">
+            <div class="skill-card-top">
+              <div class="skill-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg>
+              </div>
+              <span class="skill-years-badge">Tools</span>
+            </div>
+            <h3 class="skill-name">Git, Docker &amp; Agile</h3>
+            <p class="skill-desc">Git, GitHub, Jira, Postman, Docker, Apache Kafka, XAMPP, Visual Studio, VS Code, Agile Scrum and unit testing with Jest.</p>
+          </div>
+
+          <div class="skill-card reveal-fade" data-cat="tools">
+            <div class="skill-card-top">
+              <div class="skill-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg>
+              </div>
+              <span class="skill-years-badge">Mobile &amp; Languages</span>
+            </div>
+            <h3 class="skill-name">Flutter &amp; Core Languages</h3>
+            <p class="skill-desc">C#, Java, JavaScript, TypeScript, PHP, Python, C++, C, Dart and SQL. Mobile development with Flutter, Android Studio and the Android SDK.</p>
+          </div>
+
+        </div>
+
+        <!-- Currently learning banner -->
+        <div class="reveal-fade" style="margin-top: 2rem; padding: 1rem 1.5rem; background: rgba(37,99,235,0.08); border: 1px solid rgba(37,99,235,0.25); border-radius: 12px; display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap;">
+          <span style="background: var(--accent-blue); color: #ffffff; padding: 0.25rem 0.65rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 700;">CERTIFICATE</span>
+          <span style="color: #cbd5e1; font-size: 0.92rem;">Advanced React by Meta — Coursera</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 4: PORTFOLIO / REAL PROJECTS
+         ==================================================================== -->
+    <section class="portfolio-section" id="portfolio">
+      <div class="section-container">
+        
+        <div class="reveal-fade" style="margin-bottom: 2rem;">
+          <div class="section-label">
+            <span class="slash">/</span> FEATURED PROJECTS
+          </div>
+          <h2 class="section-title">Featured Projects</h2>
+          <p style="color: #94a3b8; margin-top: 0.5rem; max-width: 600px;">
+            Web and desktop applications delivered as a freelance software developer.
+          </p>
+        </div>
+
+        <!-- Filter tabs -->
+        <div class="projects-filter-bar reveal-fade delay-1">
+          <button class="filter-btn active" data-filter="all">All Projects</button>
+          <button class="filter-btn" data-filter="react">React Apps</button>
+          <button class="filter-btn" data-filter="fullstack">Full-Stack Web</button>
+          <button class="filter-btn" data-filter="desktop">Desktop &amp; .NET</button>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="projects-grid">
+          <article class="project-card reveal-fade" data-category="fullstack">
+            <div class="project-thumb-wrap">
+              <img src="/assets/projects/gym.svg" alt="Gym Management Platform" class="project-thumb-img" />
+              <div class="project-thumb-overlay">
+                <button class="overlay-action-btn open-case-study" data-project="gym">
+                  <span>View Details</span>
+                </button>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Java</span>
+                <span class="tech-tag">PHP</span>
+                <span class="tech-tag">ASP.NET</span>
+                <span class="tech-tag">MySQL</span>
+              </div>
+              <h3 class="project-title">Gym Management Platform</h3>
+              <p class="project-description">
+                Full-stack gym platform built with React, Java, PHP, ASP.NET and MySQL, centralizing the core daily operations of a gym.
+              </p>
+              <div class="project-footer">
+                <button class="project-details-btn open-case-study" data-project="gym">
+                  <span>Case Study</span>
+                  <span>→</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal-fade delay-1" data-category="fullstack">
+            <div class="project-thumb-wrap">
+              <img src="/assets/projects/restaurant.svg" alt="Restaurant CMS Dashboard" class="project-thumb-img" />
+              <div class="project-thumb-overlay">
+                <button class="overlay-action-btn open-case-study" data-project="restaurant">
+                  <span>View Details</span>
+                </button>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span class="tech-tag">CMS</span>
+                <span class="tech-tag">Dashboard</span>
+                <span class="tech-tag">Orders</span>
+              </div>
+              <h3 class="project-title">Restaurant CMS Dashboard</h3>
+              <p class="project-description">
+                Restaurant content-management dashboard for menus, orders and customers, unifying all key management functions in one place.
+              </p>
+              <div class="project-footer">
+                <button class="project-details-btn open-case-study" data-project="restaurant">
+                  <span>Case Study</span>
+                  <span>→</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal-fade delay-2" data-category="desktop">
+            <div class="project-thumb-wrap">
+              <img src="/assets/projects/hospital.svg" alt="Hospital Management App" class="project-thumb-img" />
+              <div class="project-thumb-overlay">
+                <button class="overlay-action-btn open-case-study" data-project="hospital">
+                  <span>View Details</span>
+                </button>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span class="tech-tag">Java</span>
+                <span class="tech-tag">Java Swing</span>
+                <span class="tech-tag">Desktop</span>
+              </div>
+              <h3 class="project-title">Hospital Management App</h3>
+              <p class="project-description">
+                Java Swing desktop application managing appointments, billing, inventory and patient records for multiple users.
+              </p>
+              <div class="project-footer">
+                <button class="project-details-btn open-case-study" data-project="hospital">
+                  <span>Case Study</span>
+                  <span>→</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal-fade delay-3" data-category="desktop">
+            <div class="project-thumb-wrap">
+              <img src="/assets/projects/repository.svg" alt="Academic Project Repository" class="project-thumb-img" />
+              <div class="project-thumb-overlay">
+                <button class="overlay-action-btn open-case-study" data-project="repository">
+                  <span>View Details</span>
+                </button>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span class="tech-tag">ASP.NET MVC</span>
+                <span class="tech-tag">C#</span>
+                <span class="tech-tag">SQL</span>
+              </div>
+              <h3 class="project-title">Academic Project Repository</h3>
+              <p class="project-description">
+                ASP.NET MVC repository where students upload, search and download academic projects.
+              </p>
+              <div class="project-footer">
+                <button class="project-details-btn open-case-study" data-project="repository">
+                  <span>Case Study</span>
+                  <span>→</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal-fade" data-category="react">
+            <div class="project-thumb-wrap">
+              <img src="/assets/projects/movies.svg" alt="Movie Library" class="project-thumb-img" />
+              <div class="project-thumb-overlay">
+                <button class="overlay-action-btn open-case-study" data-project="movies">
+                  <span>View Details</span>
+                </button>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">REST API</span>
+                <span class="tech-tag">Responsive UI</span>
+              </div>
+              <h3 class="project-title">Movie Library</h3>
+              <p class="project-description">
+                Responsive React movie library where users search, browse titles and view movie details.
+              </p>
+              <div class="project-footer">
+                <button class="project-details-btn open-case-study" data-project="movies">
+                  <span>Case Study</span>
+                  <span>→</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal-fade delay-1" data-category="react">
+            <div class="project-thumb-wrap">
+              <img src="/assets/projects/books.svg" alt="Book Search App" class="project-thumb-img" />
+              <div class="project-thumb-overlay">
+                <button class="overlay-action-btn open-case-study" data-project="books">
+                  <span>View Details</span>
+                </button>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">API</span>
+                <span class="tech-tag">Memoization</span>
+              </div>
+              <h3 class="project-title">Book Search App</h3>
+              <p class="project-description">
+                React book search that uses memoization to cut redundant book API calls, improving search speed and responsiveness.
+              </p>
+              <div class="project-footer">
+                <button class="project-details-btn open-case-study" data-project="books">
+                  <span>Case Study</span>
+                  <span>→</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 5: EDUCATION & CAREER JOURNEY (Scroll Animated Timeline)
+         ==================================================================== -->
+    <section class="timeline-section" id="timeline">
+      <div class="section-container">
+        
+        <div class="reveal-fade" style="text-align: center; max-width: 600px; margin: 0 auto 3rem;">
+          <div class="section-label" style="justify-content: center;">
+            <span class="slash">/</span> EDUCATION &amp; JOURNEY
+          </div>
+          <h2 class="section-title">Experience &amp; Education</h2>
+        </div>
+
+        <div class="timeline-container" id="timelineContainer">
+          <!-- Animated vertical fill track -->
+          <div class="timeline-track">
+            <div class="timeline-track-fill" id="timelineTrackFill"></div>
+          </div>
+
+          <!-- Timeline items -->
+          <div class="timeline-item reveal-fade">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <h3 class="timeline-role">Software Developer</h3>
+                <span class="timeline-period">March 2025 — Present</span>
+              </div>
+              <div class="timeline-company">Freelance</div>
+              <p class="timeline-text">
+                Delivered 6 web and desktop applications for business workflows using React, PHP, Java and C#.
+              </p>
+              <ul class="timeline-bullets">
+                <li>Built a gym platform, restaurant CMS, Java Swing hospital app, ASP.NET MVC repository and React movie library.</li>
+                <li>Configured role-based access permissions and applied SQL Server triggers and procedures for reliable data.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal-fade delay-1">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <h3 class="timeline-role">B.Sc. in Computer Science</h3>
+                <span class="timeline-period">September 2023 — June 2025</span>
+              </div>
+              <div class="timeline-company">Lebanese International University</div>
+              <p class="timeline-text">
+                Computer science degree with a GPA of 3.3.
+              </p>
+              <ul class="timeline-bullets">
+                <li>Applied coursework to full-stack projects using C#, Java, React and PHP.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal-fade delay-2">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <h3 class="timeline-role">Advanced React</h3>
+                <span class="timeline-period">Certificate</span>
+              </div>
+              <div class="timeline-company">Coursera • Meta</div>
+              <p class="timeline-text">
+                Completed the Advanced React course offered by Meta on Coursera.
+              </p>
+              <ul class="timeline-bullets">
+                <li>Strengthened skills in React patterns, state management and performance.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 6: ARCHITECTURE & DESIGN PRINCIPLES
+         ==================================================================== -->
+    <section class="services-section" id="architecture">
+      <div class="section-container">
+        
+        <div class="reveal-fade">
+          <div class="section-label">
+            <span class="slash">/</span> ARCHITECTURE &amp; PRINCIPLES
+          </div>
+          <h2 class="section-title">Engineering Focus</h2>
+          <p style="color: #94a3b8; margin-top: 0.5rem; max-width: 580px;">
+            Building reliable, secure and data-driven applications.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card reveal-fade">
+            <span class="service-number">01 // CODE QUALITY</span>
+            <h3 class="service-title">SOLID &amp; Clean Code</h3>
+            <p class="service-text">
+              Applies SOLID principles, MVC architecture and clean code practices to keep applications maintainable.
+            </p>
+            <ul class="service-items">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> MVC architecture in ASP.NET</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Unit testing and debugging</li>
+            </ul>
+          </div>
+
+          <div class="service-card reveal-fade delay-1">
+            <span class="service-number">02 // DATA</span>
+            <h3 class="service-title">Database Design &amp; Optimization</h3>
+            <p class="service-text">
+              Designs normalized databases and tunes queries for reliable records and efficient access.
+            </p>
+            <ul class="service-items">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> SQL Server triggers and stored procedures</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Normalization and query optimization</li>
+            </ul>
+          </div>
+
+          <div class="service-card reveal-fade delay-2">
+            <span class="service-number">03 // SECURITY</span>
+            <h3 class="service-title">Access Control &amp; Authentication</h3>
+            <p class="service-text">
+              Restricts accounts to authorized features by user role across web and desktop platforms.
+            </p>
+            <ul class="service-items">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Role-based access permissions</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Authentication and API integration</li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 7: ADDITIONAL PROJECTS & LANGUAGES
+         ==================================================================== -->
+    <section class="testimonials-section" id="additional">
+      <div class="section-container">
+        
+        <div class="reveal-fade" style="text-align: center; max-width: 600px; margin: 0 auto 3rem;">
+          <div class="section-label" style="justify-content: center;">
+            <span class="slash">/</span> ADDITIONAL HIGHLIGHTS
+          </div>
+          <h2 class="section-title">Additional Skills &amp; Languages</h2>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card reveal-fade">
+            <div style="font-size: 0.8rem; font-weight: 700; color: #38bdf8; text-transform: uppercase; margin-bottom: 0.75rem;">
+              Professional Skills
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: #ffffff; margin-bottom: 0.75rem;">Soft Skills</h3>
+            <p class="testimonial-quote" style="font-style: normal; color: #94a3b8;">
+              Problem solving, analytical thinking, attention to detail, communication, time management, adaptability and continuous learning.
+            </p>
+            <div class="project-tags">
+              <span class="tech-tag">Problem Solving</span>
+              <span class="tech-tag">Communication</span>
+              <span class="tech-tag">Adaptability</span>
+            </div>
+          </div>
+
+          <div class="testimonial-card reveal-fade delay-1">
+            <div style="font-size: 0.8rem; font-weight: 700; color: #38bdf8; text-transform: uppercase; margin-bottom: 0.75rem;">
+              Mobile • Cloud • Messaging
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: #ffffff; margin-bottom: 0.75rem;">Additional Tools</h3>
+            <p class="testimonial-quote" style="font-style: normal; color: #94a3b8;">
+              Flutter, Dart, Android Studio, Android SDK, Firebase Realtime Database, Apache Kafka and Docker.
+            </p>
+            <div class="project-tags">
+              <span class="tech-tag">Flutter</span>
+              <span class="tech-tag">Firebase</span>
+              <span class="tech-tag">Docker</span>
+            </div>
+          </div>
+
+          <div class="testimonial-card reveal-fade delay-2">
+            <div style="font-size: 0.8rem; font-weight: 700; color: #10b981; text-transform: uppercase; margin-bottom: 0.75rem;">
+              Communication
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: #ffffff; margin-bottom: 0.75rem;">Spoken Languages</h3>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.5rem;">
+              <li style="color: #cbd5e1; display: flex; justify-content: space-between; font-size: 0.95rem;">
+                <strong>Arabic</strong>
+                <span style="color: #10b981; font-weight: 600;">Native</span>
+              </li>
+              <li style="color: #cbd5e1; display: flex; justify-content: space-between; font-size: 0.95rem;">
+                <strong>English</strong>
+                <span style="color: #38bdf8; font-weight: 600;">Fluent</span>
+              </li>
+              <li style="color: #cbd5e1; display: flex; justify-content: space-between; font-size: 0.95rem;">
+                <strong>French</strong>
+                <span style="color: #94a3b8; font-weight: 600;">Basic</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 8: GET IN TOUCH / CONTACT
+         ==================================================================== -->
+    <section class="contact-section" id="contact">
+      <div class="section-container">
+        
+        <div class="reveal-fade">
+          <div class="section-label">
+            <span class="slash">/</span> GET IN TOUCH
+          </div>
+          <h2 class="section-title">Let's Connect</h2>
+          <p style="color: #94a3b8; margin-top: 0.5rem; max-width: 550px;">
+            Open to software developer roles where I can build scalable, user-friendly applications. Get in touch to discuss an opportunity.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          
+          <!-- Left Info Column -->
+          <div class="contact-info-col reveal-fade">
+            <div class="availability-card">
+              <span class="status-dot"></span>
+              <span>Available for software development opportunities</span>
+            </div>
+
+            <div class="contact-details-list">
+              <!-- Detail 1: Email -->
+              <div class="contact-detail-item">
+                <div class="contact-icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div class="contact-detail-text">
+                  <h4>DIRECT EMAIL</h4>
+                  <p>jawad.haidar.2019@hotmail.com</p>
+                  <button class="copy-email-btn" id="copyEmailBtn">Copy Email Address</button>
+                </div>
+              </div>
+
+              <!-- Detail 2: Phone -->
+              <div class="contact-detail-item">
+                <div class="contact-icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <div class="contact-detail-text">
+                  <h4>PHONE &amp; WHATSAPP</h4>
+                  <p>+961 81 030 749</p>
+                  <button class="copy-email-btn" id="copyPhoneBtn">Copy Phone Number</button>
+                </div>
+              </div>
+
+              <!-- Detail 4: Profiles -->
+              <div class="contact-detail-item">
+                <div class="contact-icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                </div>
+                <div class="contact-detail-text">
+                  <h4>ONLINE PROFILE</h4>
+                  <div style="display: flex; gap: 0.6rem; margin-top: 0.35rem; flex-wrap: wrap;">
+                    <a href="https://www.linkedin.com/in/jawad-haidar-223884384" target="_blank" rel="noreferrer" class="copy-email-btn" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.4rem 0.85rem; background: rgba(37,99,235,0.15); border-color: rgba(37,99,235,0.4); color: #ffffff;">
+                      <span>LinkedIn</span>
+                      <span>↗</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Contact Form -->
+          <div class="contact-form-card reveal-fade delay-1">
+            <form id="contactForm" action="https://formsubmit.co/jawad.haidar.2019@hotmail.com" method="POST">
+              <!-- FormSubmit Configuration -->
+              <input type="hidden" name="_subject" id="formSubjectHidden" value="New Portfolio Message for Jawad Haidar" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
+
+              <div class="form-group-row">
+                <div class="form-group">
+                  <label class="form-label" for="contactName">Your Name *</label>
+                  <input type="text" name="name" id="contactName" class="form-input" placeholder="e.g. Alex Morgan" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="contactEmail">Email Address *</label>
+                  <input type="email" name="email" id="contactEmail" class="form-input" placeholder="alex@company.com" required />
+                </div>
+              </div>
+
+              <div class="form-group-row">
+                <div class="form-group">
+                  <label class="form-label" for="contactSubject">Opportunity Type</label>
+                  <select name="opportunity_type" id="contactSubject" class="form-select">
+                    <option value="Job Opportunity">Job Opportunity</option>
+                    <option value="Freelance">Freelance / Project</option>
+                    <option value="Other">Other Inquiry</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="contactBudget">Work Arrangement</label>
+                  <select name="work_arrangement" id="contactBudget" class="form-select">
+                    <option value="Remote">Remote</option>
+                    <option value="On-Site">On-Site</option>
+                    <option value="Relocation">Relocation Opportunity</option>
+                    <option value="Contract">Freelance / Contract</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contactMessage">Message *</label>
+                <textarea name="message" id="contactMessage" class="form-textarea" placeholder="Hello, I would like to get in touch about..." required></textarea>
+              </div>
+
+              <button type="submit" class="submit-btn" id="contactSubmitBtn">
+                <span>Send Message</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+              </button>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ====================================================================
+       SITE FOOTER (Matching Image 1 Aesthetic)
+       ==================================================================== -->
+  <footer class="site-footer">
+    <div class="section-container">
+      <div class="footer-top">
+        <a href="#home" class="brand-logo">
+          <span class="logo-code">&lt;/&gt;</span>
+          <span>Jawad Haidar</span>
+        </a>
+        <ul class="footer-nav">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#portfolio">Projects</a></li>
+          <li><a href="#timeline">Journey</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="https://www.linkedin.com/in/jawad-haidar-223884384" target="_blank" rel="noreferrer" style="color: #60a5fa;">LinkedIn ↗</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright-text">
+          &copy; 2026 Jawad Haidar. All rights reserved. B.Sc. in Computer Science — Lebanese International University.
+        </p>
+        <button class="back-to-top-btn" id="backToTopBtn">
+          <span>Back to Top</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ====================================================================
+       INTERACTIVE MODALS
+       ==================================================================== -->
+  <!-- Project Architecture Case Study Modal -->
+  <div class="modal-backdrop" id="projectModal">
+    <div class="modal-window">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close dialog">✕</button>
+      <h3 id="modalTitle" style="font-size: 1.5rem; font-weight: 700; color: #ffffff; margin-bottom: 1rem;">Project Case Study</h3>
+      <div id="modalBody">
+        <!-- Injected dynamically via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- "More About Me" Philosophy & Background Modal -->
+  <div class="modal-backdrop" id="aboutManifestoModal">
+    <div class="modal-window">
+      <button class="modal-close-btn" id="aboutModalCloseBtn" aria-label="Close dialog">✕</button>
+      <h3 style="font-size: 1.6rem; font-weight: 800; color: #ffffff; margin-bottom: 1.25rem;">Background &amp; Experience</h3>
+      <p style="color: #cbd5e1; line-height: 1.75; margin-bottom: 1.2rem; font-size: 0.98rem;">
+        Bachelor’s degree in Computer Science from Lebanese International University (2023–2025). Since March 2025, I have worked as a freelance software developer, delivering applications with React, PHP, Java, C# and ASP.NET across web and desktop platforms, with a focus on SQL databases, role-based access control and clean, maintainable code.
+      </p>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
